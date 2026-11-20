@@ -1,10 +1,10 @@
-# Assignment 1
+# Assignment 1 - Event Ticketing Management System
 
-The Event Ticketing Management System is a Node.js module designed to simplify event management and ticket booking operations.
+The Event Ticketing Management System is a Node.js module developed to simplify event management and ticket booking operations. The assignment is inspired by SISTIC, a Singapore-based ticketing platform that allows users to discover events, purchase tickets and manage their bookings.
 
-The module allows users to manage event information, search for events, check ticket availability, make and cancel bookings, calculate ticket prices and update event statuses.
+Using SISTIC as a real-world reference, this assignment focuses on the essential features of an event ticketing system, such as adding and searching for events, checking ticket availability, booking and cancelling tickets, calculating ticket prices and updating event statuses.
 
-It uses JavaScript arrays as a mock database to store event, ticket and booking information. This allows the system to demonstrate basic data management without requiring an external database.
+The module uses JavaScript arrays as a mock database to store event, ticket and booking information. This allows the system to demonstrate basic event and ticket management operations without requiring an external database.
 
 # Functions
 1. Add Event - Add a new event after checking required details and duplicate event IDs
