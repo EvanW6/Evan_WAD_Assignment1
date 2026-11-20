@@ -58,7 +58,7 @@ module.exports = {
         }
     ],
 
-    // Function 1
+    // Function 1: Allow a new event to be added to the system
     
     addEvent(eventId,eventName,category,date,venue,status) {
         for (let i = 0; i < this.events.length; i++){
@@ -83,6 +83,28 @@ module.exports = {
 
     getNumOfEvents(){
         return this.events.length;
+    },
+
+    // Function 2: Allow users to search for events using different criteria
+
+    searchEvent(keyword) {
+        let results = [];
+        let word = keyword.toLowerCase();
+        for (let i = 0; i < this.events.length; i++){
+            let event = this.events[i];
+            if (event.eventName.toLowerCase().includes(word) ||
+                event.category.toLowerCase().includes(word) ||
+                event.venue.toLowerCase().includes(word)){
+                results.push(event);
+            }
+        }
+        if (results.length > 0){
+            console.log("\nSearch results for '" + keyword + "'.");
+            return results;
+        } 
+        else {
+            console.log("\nNo events found.");
+        }
     },
 
 }
