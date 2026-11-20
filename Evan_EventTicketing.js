@@ -107,4 +107,22 @@ module.exports = {
         }
     },
 
+    // Function 3: Check how many tickets remain for a particular event and ticket type
+
+    checkTicketAvailability(eventId, ticketType, quantity) {
+        for (let i = 0; i < this.tickets.length; i++){
+            let ticket = this.tickets[i];
+            if (ticket.eventId == eventId && ticket.ticketType == ticketType){
+                if (ticket.availableQuantity >= quantity){
+                    console.log("\n" + quantity + " VIP tickets for " + eventId + " available");
+                    return true;
+            }   
+                else {
+                    console.log("Error: Only " + ticket.availableQuantity + " " + ticketType + " ticket(s) left for " + eventId + ", you requested " + quantity + ".");
+                    return false;
+                }
+            }
+        }
+    },
+
 }

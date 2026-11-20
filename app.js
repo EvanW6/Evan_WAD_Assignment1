@@ -10,3 +10,8 @@ console.log("Total no of events: ", eventTicketing.getNumOfEvents());
 // Function 2
 
 console.log(eventTicketing.searchEvent("music"));
+
+// Function 3
+
+console.log(eventTicketing.checkTicketAvailability("E001", "VIP", 5));
+console.log(eventTicketing.checkTicketAvailability("E001", "Standard", 500));
