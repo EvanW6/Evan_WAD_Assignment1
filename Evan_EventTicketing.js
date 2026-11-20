@@ -1,5 +1,4 @@
-// Function 1
-let eventTicketing = {
+module.exports = {
     events:[
         {
             eventId: "E001",
@@ -38,9 +37,36 @@ let eventTicketing = {
         }
     ],
 
+    bookings:[
+        {
+            bookingId: "B001",
+            customerName: "Alice Tan",
+            eventId: "E001",
+            ticketType: "VIP",
+            quantity: 3,
+            totalPrice: 540,
+            status: "Confirmed"
+        },
+        {
+            bookingId: "B002",
+            customerName: "Ben Lim",
+            eventId: "E001",
+            ticketType: "Standard",
+            quantity: 4,
+            totalPrice: 360,
+            status: "Confirmed"
+        }
+    ],
+
     // Function 1
     
     addEvent(eventId,eventName,category,date,venue,status) {
+        for (let i = 0; i < this.events.length; i++){
+            if (this.events[i].eventId == eventId){
+                console.log("Error: Event " + eventId + " already exists.");
+                return false; // eventId already exists
+            }
+        }
         this.events.push(
             {
                 eventId: eventId,
@@ -51,6 +77,8 @@ let eventTicketing = {
                 status: status
             }
         );
+        console.log("Event " + eventId + " added successfully");
+        return true
     },
 
     getNumOfEvents(){
@@ -58,5 +86,3 @@ let eventTicketing = {
     },
 
 }
-
-module.exports = eventTicketing;
