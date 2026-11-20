@@ -195,4 +195,26 @@ module.exports = {
         return booking;
     },
 
+    // Function 6: Allow customers to cancel an existing booking and return the tickets to the available inventory
+
+    cancelBooking(bookingId) {
+        for (let i = 0; i < this.bookings.length; i++){
+            let booking = this.bookings[i];
+            if (booking.bookingId == bookingId && booking.status == "Confirmed"){
+                // Give the tickets back
+                for (let j = 0; j < this.tickets.length; j++){
+                    let ticket = this.tickets[j];
+                    if (ticket.eventId == booking.eventId && ticket.ticketType == booking.ticketType){
+                        ticket.availableQuantity += booking.quantity;
+                    }
+                }
+                booking.status = "Cancelled";
+                console.log("\nBooking " + bookingId + " cancelled.");
+                return true;
+            }
+        }
+        console.log("\nUnable to cancel booking " + bookingId);
+        return false; // not found or already cancelled
+    },
+
 }

@@ -24,3 +24,7 @@ console.log(eventTicketing.calculateTicketPrice("E001", "VIP", 5));
 // Function 5
 
 console.log(eventTicketing.bookTickets("Clara Ng", "E001", "VIP", 2));
+
+// Function 6
+
+console.log(eventTicketing.cancelBooking("B003"));
