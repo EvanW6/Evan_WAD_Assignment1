@@ -125,4 +125,22 @@ module.exports = {
         }
     },
 
+    // Function 4: Calculate the total cost of a ticket booking
+
+    calculateTicketPrice(eventId, ticketType, quantity) {
+        for (let i = 0; i < this.tickets.length; i++){
+            let ticket = this.tickets[i];
+            if (ticket.eventId == eventId && ticket.ticketType == ticketType){
+                let total = ticket.price * quantity;
+                if (quantity >= 5){
+                    total = total * 0.9;
+                }
+                console.log("\nPrice for " + quantity + " " + ticketType + " tickets: $" + total);
+                return total;
+            }
+        }
+        console.log("\nError: " + ticketType + " tickets not found for event " + eventId + ".");
+        return 0;
+    },
+
 }
