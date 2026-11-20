@@ -20,3 +20,7 @@ console.log(eventTicketing.checkTicketAvailability("E001", "Standard", 500));
 
 console.log(eventTicketing.calculateTicketPrice("E001", "VIP", 2));
 console.log(eventTicketing.calculateTicketPrice("E001", "VIP", 5));
+
+// Function 5
+
+console.log(eventTicketing.bookTickets("Clara Ng", "E001", "VIP", 2));

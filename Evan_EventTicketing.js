@@ -143,4 +143,56 @@ module.exports = {
         return 0;
     },
 
+    // Function 5: Allow customers to book tickets for an event
+
+    bookTickets(customerName, eventId, ticketType, quantity) {
+        // Find the event and make sure it is still upcoming
+        let event = null;
+        for (let i = 0; i < this.events.length; i++){
+            if (this.events[i].eventId == eventId){
+                event = this.events[i];
+            }
+        }
+        if (event == null || event.status != "Upcoming"){
+            return null;
+        }
+
+        let ticket = null;
+        for (let i = 0; i < this.tickets.length; i++){
+            if (this.tickets[i].eventId == eventId && this.tickets[i].ticketType == ticketType){
+                ticket = this.tickets[i];
+            }
+        }
+
+        if (ticket == null){
+            return "Error: " + ticketType + " tickets not found for event " + eventId + ".";
+        }
+
+        // Make sure there are enough tickets
+        if (ticket.availableQuantity < quantity){
+            return this.checkTicketAvailability(eventId, ticketType, quantity);
+        }
+
+        // Reduce the available tickets
+        for (let i = 0; i < this.tickets.length; i++){
+            let ticket = this.tickets[i];
+            if (ticket.eventId == eventId && ticket.ticketType == ticketType){
+                ticket.availableQuantity -= quantity;
+            }
+        }
+
+        // Create the booking
+        let booking = {
+            bookingId: "B" + String(this.bookings.length + 1).padStart(3, "0"),
+            customerName: customerName,
+            eventId: eventId,
+            ticketType: ticketType,
+            quantity: quantity,
+            totalPrice: this.calculateTicketPrice(eventId, ticketType, quantity),
+            status: "Confirmed"
+        };
+        this.bookings.push(booking);
+        return booking;
+    },
+
 }
