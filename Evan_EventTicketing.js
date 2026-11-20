@@ -209,7 +209,7 @@ module.exports = {
                     }
                 }
                 booking.status = "Cancelled";
-                console.log("\nBooking " + bookingId + " cancelled.");
+                console.log("\nBooking " + bookingId + " has been cancelled.");
                 return true;
             }
         }
@@ -217,4 +217,17 @@ module.exports = {
         return false; // not found or already cancelled
     },
 
+    // Function 7: Allow an event's status to be changed
+
+    updateEventStatus(eventId, newStatus) {
+        for (let i = 0; i < this.events.length; i++){
+            if (this.events[i].eventId == eventId){
+                this.events[i].status = newStatus;
+                console.log("\nEvent " + eventId + " status has been updated.");
+                return true;
+            }
+        }
+        console.log("\nEvent " + eventId + " not found.");
+        return false; // event not found
+    },
 }
