@@ -1,12 +1,22 @@
 # Assignment 1
 
-You will only need one file, ie, your node module, for this assignment.
+The Event Ticketing Management System is a Node.js module designed to simplify event management and ticket booking operations.
 
-In this readme file, describe how to use your node module. It could be similar to **app.js** from Lab2, where you call some functions in your node module and display the output. Describe how to setup your node module, if any. Describe how to call the functions, what parameters required and so on.
+The module allows users to manage event information, search for events, check ticket availability, make and cancel bookings, calculate ticket prices and update event statuses.
 
-You can press **Ctrl+Shift+V** in this file in Visual Studio Code to see a live preview of the readme file.
+It uses JavaScript arrays as a mock database to store event, ticket and booking information. This allows the system to demonstrate basic data management without requiring an external database.
 
-For some tips in formatting text in readme file, refer to https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+# Functions
+1. Add Event - Add a new event after checking required details and duplicate event IDs
+2. Search Event - Search by event name, category or venue
+3. Check Ticket Availability - Find remaining tickets for a particular event and ticket type
+4. Calculate Ticket Price - Calculate the total price based on ticket price and quantity
+5. Book Tickets - Check availability, create a booking and decrease available quantity
+6. Cancel Booking - Cancel a confirmed booking and restore the ticket quantity
+7. Update Event Status - Change an event's status and validate the new status
 
 # References
-Provide the references that you have used to support your assignment. 
+SISTIC Singapore: https://www.sistic.com.sg/
+
+# AI Usage
+AI assistance was used to generate project ideas, suggest the mock database schema and create sample mock data.
